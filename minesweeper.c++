@@ -153,10 +153,6 @@ public:
             }
         }
         return;
-    }
-
-    // A function to replace the mine from (row, col) and
-    // put it to a vacant space
     void replaceMine(int row, int col)
     {
         for (int i = 0; i < SIDE; i++) {
@@ -176,7 +172,6 @@ public:
 };
 class Game {
 public:
-    // A Recursive Function to play the Minesweeper Game
     bool playMinesweeperUtil(Board& myBoard,
                              Board& realBoard,
                              int mines[][2], int row,
@@ -187,9 +182,6 @@ public:
             return (false);
 
         int i, j;
-
-        // You opened a mine
-        // You are going to lose
         if (realBoard.board[row][col] == '*') {
             myBoard.board[row][col] = '*';
             for (i = 0; i < MINES; i++)
@@ -212,14 +204,6 @@ public:
             if (!count) {
                 /*
                 Recur for all 8 adjacent cells
-
-                    N.W   N   N.E
-                      \   |   /
-                          \  |  /
-                    W----Cell----E
-                         / | \
-                       /   |  \
-                    S.W    S   S.E
 
                 Cell-->Current Cell (row, col)
                 N -->  North        (row-1, col)
